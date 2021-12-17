@@ -1,6 +1,6 @@
 [TBD]
 * Added more string utils in common core (#1417)
-* Generate SBOM on release (#1425)   
+* Generate SBOM on release (#1425)    
 
 ## [1.1.25]
 * Added public API to pass EQP to the /token endpoint (#1406) 

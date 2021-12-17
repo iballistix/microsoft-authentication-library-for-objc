@@ -159,6 +159,13 @@ jobs:
       type: 'FilePath'
       scriptPath: 'ReleaseArchive.sh'
       args: '$(releaseVersion) $(Build.ArtifactStagingDirectory)'
+      
+      
+  - task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: $(Build.ArtifactStagingDirectory)
+    artifactName: Artifact
+      
 #  - task: Bash@3
 #    displayName: Common Core - extract release version from changelog | Build release notes
 #    inputs:
@@ -391,7 +398,3 @@ jobs:
 #      failOnStderr: false
 #      noProfile: false
 #      noRc: false
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: $(Build.ArtifactStagingDirectory)
-    artifactName: Artifact
