@@ -139,7 +139,7 @@ jobs:
 #      script: |
 #        chksm=$(shasum -a 256 $(Build.ArtifactStagingDirectory)/MSAL.zip | cut -d ' ' -f 1)
 #        echo "##vso[task.setvariable variable=frameworkChecksum]${chksm}"
-#        
+#
 #        #Regex for semver versioning
 #        ver=$(egrep -om1 '\[((0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)\]' CHANGELOG.md | sed -E -e "s/\[|\]//g")
 #        echo "##vso[task.setvariable variable=releaseVersion]${ver}"
@@ -391,3 +391,7 @@ jobs:
 #      failOnStderr: false
 #      noProfile: false
 #      noRc: false
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: $(Build.ArtifactStagingDirectory)
+    artifactName: Artifact
